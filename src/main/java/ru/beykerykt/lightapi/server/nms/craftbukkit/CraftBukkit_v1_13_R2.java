@@ -129,7 +129,7 @@ public class CraftBukkit_v1_13_R2 implements INMSHandler {
 
 	private static Field getChunkField(Object chunk) throws NoSuchFieldException, SecurityException {
 		if (cachedChunkModified == null) {
-			cachedChunkModified = chunk.getClass().getDeclaredField("y");
+			cachedChunkModified = chunk.getClass().getDeclaredField("x");
 			cachedChunkModified.setAccessible(true);
 		}
 		return cachedChunkModified;
