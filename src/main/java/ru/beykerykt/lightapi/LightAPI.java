@@ -57,7 +57,6 @@ import ru.beykerykt.lightapi.server.ServerModManager;
 import ru.beykerykt.lightapi.server.exceptions.UnknownModImplementationException;
 import ru.beykerykt.lightapi.server.exceptions.UnknownNMSVersionException;
 import ru.beykerykt.lightapi.server.nms.craftbukkit.*;
-import ru.beykerykt.lightapi.server.nms.paperspigot.PaperSpigot_v1_8_R3;
 import ru.beykerykt.lightapi.updater.Response;
 import ru.beykerykt.lightapi.updater.UpdateType;
 import ru.beykerykt.lightapi.updater.Updater;
@@ -85,46 +84,22 @@ public class LightAPI extends JavaPlugin implements Listener {
 		this.machine = new RequestSteamMachine();
 
 		ServerModInfo craftbukkit = new ServerModInfo("CraftBukkit");
-		craftbukkit.getVersions().put("v1_8_R3", CraftBukkit_v1_8_R3.class);
-		craftbukkit.getVersions().put("v1_9_R1", CraftBukkit_v1_9_R1.class);
-		craftbukkit.getVersions().put("v1_9_R2", CraftBukkit_v1_9_R2.class);
-		craftbukkit.getVersions().put("v1_10_R1", CraftBukkit_v1_10_R1.class);
-		craftbukkit.getVersions().put("v1_11_R1", CraftBukkit_v1_11_R1.class);
-		craftbukkit.getVersions().put("v1_12_R1", CraftBukkit_v1_12_R1.class);
-		craftbukkit.getVersions().put("v1_13_R1", CraftBukkit_v1_13_R1.class);
+
+		craftbukkit.getVersions().put("v1_13_R2", CraftBukkit_v1_13_R2.class);
 		ServerModManager.registerServerMod(craftbukkit);
 
 		ServerModInfo spigot = new ServerModInfo("Spigot");
-		spigot.getVersions().put("v1_8_R3", CraftBukkit_v1_8_R3.class);
-		spigot.getVersions().put("v1_9_R1", CraftBukkit_v1_9_R1.class);
-		spigot.getVersions().put("v1_9_R2", CraftBukkit_v1_9_R2.class);
-		spigot.getVersions().put("v1_10_R1", CraftBukkit_v1_10_R1.class);
-		spigot.getVersions().put("v1_11_R1", CraftBukkit_v1_11_R1.class);
-		spigot.getVersions().put("v1_12_R1", CraftBukkit_v1_12_R1.class);
-		spigot.getVersions().put("v1_13_R1", CraftBukkit_v1_13_R1.class);
+
+		spigot.getVersions().put("v1_13_R2", CraftBukkit_v1_13_R2.class);
 		ServerModManager.registerServerMod(spigot);
 
-		ServerModInfo paperspigot = new ServerModInfo("PaperSpigot");
-		paperspigot.getVersions().put("v1_8_R3", PaperSpigot_v1_8_R3.class);
-		ServerModManager.registerServerMod(paperspigot);
-
 		ServerModInfo paper = new ServerModInfo("Paper");
-		paper.getVersions().put("v1_9_R1", CraftBukkit_v1_9_R1.class);
-		paper.getVersions().put("v1_9_R2", CraftBukkit_v1_9_R2.class);
-		paper.getVersions().put("v1_10_R1", CraftBukkit_v1_10_R1.class);
-		paper.getVersions().put("v1_11_R1", CraftBukkit_v1_11_R1.class);
-		paper.getVersions().put("v1_12_R1", CraftBukkit_v1_12_R1.class);
-		paper.getVersions().put("v1_13_R1", CraftBukkit_v1_13_R1.class);
+
+		paper.getVersions().put("v1_13_R2", CraftBukkit_v1_13_R2.class);
 		ServerModManager.registerServerMod(paper);
 
 		ServerModInfo tacospigot = new ServerModInfo("TacoSpigot");
-		// tacospigot.getVersions().put("v1_8_R3", PaperSpigot_v1_8_R3.class); - call errors with anti-xray - obfuscate
-		tacospigot.getVersions().put("v1_9_R1", CraftBukkit_v1_9_R1.class);
-		tacospigot.getVersions().put("v1_9_R2", CraftBukkit_v1_9_R2.class);
-		tacospigot.getVersions().put("v1_10_R1", CraftBukkit_v1_10_R1.class);
-		tacospigot.getVersions().put("v1_11_R1", CraftBukkit_v1_11_R1.class);
-		tacospigot.getVersions().put("v1_12_R1", CraftBukkit_v1_12_R1.class);
-		tacospigot.getVersions().put("v1_13_R1", CraftBukkit_v1_13_R1.class);
+		tacospigot.getVersions().put("v1_13_R2", CraftBukkit_v1_13_R2.class);
 		ServerModManager.registerServerMod(tacospigot);
 	}
 

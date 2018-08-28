@@ -1,18 +1,18 @@
 /**
  * The MIT License (MIT)
- * 
+ *
  * Copyright (c) 2015 - 2016
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- *  
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -23,26 +23,20 @@
  */
 package ru.beykerykt.lightapi.server.nms.craftbukkit;
 
+import net.minecraft.server.v1_13_R2.*;
+import org.bukkit.World;
+import org.bukkit.craftbukkit.v1_13_R2.CraftWorld;
+import org.bukkit.craftbukkit.v1_13_R2.entity.CraftPlayer;
+import org.bukkit.entity.Player;
+import ru.beykerykt.lightapi.chunks.ChunkInfo;
+import ru.beykerykt.lightapi.server.nms.INMSHandler;
+
 import java.lang.reflect.Field;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import org.bukkit.World;
-import org.bukkit.craftbukkit.v1_9_R2.CraftWorld;
-import org.bukkit.craftbukkit.v1_9_R2.entity.CraftPlayer;
-import org.bukkit.entity.Player;
-
-import net.minecraft.server.v1_9_R2.BlockPosition;
-import net.minecraft.server.v1_9_R2.Chunk;
-import net.minecraft.server.v1_9_R2.EntityPlayer;
-import net.minecraft.server.v1_9_R2.EnumSkyBlock;
-import net.minecraft.server.v1_9_R2.PacketPlayOutMapChunk;
-import net.minecraft.server.v1_9_R2.WorldServer;
-import ru.beykerykt.lightapi.chunks.ChunkInfo;
-import ru.beykerykt.lightapi.server.nms.INMSHandler;
-
-public class CraftBukkit_v1_9_R2 implements INMSHandler {
+public class CraftBukkit_v1_13_R2 implements INMSHandler {
 
 	private static Field cachedChunkModified;
 
@@ -80,7 +74,7 @@ public class CraftBukkit_v1_9_R2 implements INMSHandler {
 						if (isModified.getBoolean(chunk)) {
 							ChunkInfo cCoord = new ChunkInfo(world, chunk.locX, y, chunk.locZ, world.getPlayers());
 							list.add(cCoord);
-							chunk.f(false);
+							chunk.a(false);
 						}
 					}
 				}
@@ -135,7 +129,7 @@ public class CraftBukkit_v1_9_R2 implements INMSHandler {
 
 	private static Field getChunkField(Object chunk) throws NoSuchFieldException, SecurityException {
 		if (cachedChunkModified == null) {
-			cachedChunkModified = chunk.getClass().getDeclaredField("s");
+			cachedChunkModified = chunk.getClass().getDeclaredField("y");
 			cachedChunkModified.setAccessible(true);
 		}
 		return cachedChunkModified;
